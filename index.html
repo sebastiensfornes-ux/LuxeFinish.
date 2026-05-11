@@ -4,384 +4,445 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#747878",
+                    "secondary-fixed": "#d8e2ff",
+                    "inverse-on-surface": "#f0f1f1",
+                    "on-surface-variant": "#444748",
+                    "secondary": "#0058bc",
+                    "primary-fixed": "#e5e2e1",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#dadada",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-surface": "#1a1c1c",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#161e00",
+                    "on-secondary-fixed-variant": "#004493",
+                    "background": "#f9f9f9",
+                    "outline-variant": "#c4c7c7",
+                    "on-primary-fixed-variant": "#474746",
+                    "surface-container-high": "#e8e8e8",
+                    "tertiary": "#000000",
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#abd600",
+                    "surface-container": "#eeeeee",
+                    "secondary-container": "#0070eb",
+                    "primary": "#000000",
+                    "on-primary-fixed": "#1c1b1b",
+                    "inverse-surface": "#2f3131",
+                    "surface-bright": "#f9f9f9",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "on-primary-container": "#858383",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#c8c6c5",
+                    "on-tertiary-fixed": "#161e00",
+                    "on-tertiary-container": "#718e00",
+                    "on-secondary-container": "#fefcff",
+                    "surface": "#f9f9f9",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "tertiary-fixed": "#c3f400",
+                    "surface-variant": "#e2e2e2",
+                    "primary-container": "#1c1b1b",
+                    "on-error": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-background": "#1a1c1c",
+                    "on-tertiary-fixed-variant": "#3c4d00",
+                    "surface-tint": "#5f5e5e",
+                    "surface-container-low": "#f3f3f4",
+                    "on-secondary-fixed": "#001a41"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "container-max": "1440px",
+                    "unit": "8px",
+                    "section-gap": "120px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-caps": ["JetBrains Mono"],
+                    "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "display-lg": ["80px", {"lineHeight": "88px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
 <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
         .glass-panel {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(32px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            -webkit-backdrop-filter: blur(32px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         .ai-overlay {
             background: rgba(26, 26, 26, 0.8);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .scan-line {
+            height: 2px;
+            width: 100%;
+            background: #adc6ff;
+            box-shadow: 0 0 15px #0070eb;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: scan 3s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
         }
         .glow-blue {
-            box-shadow: 0 0 20px rgba(0, 88, 188, 0.3);
-        }
-        .glide-in-top {
-            animation: glideDown 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        @keyframes glideDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
+            box-shadow: 0 0 40px rgba(0, 88, 188, 0.15);
         }
     </style>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "surface-container-low": "#f3f3f4",
-                        "inverse-on-surface": "#f0f1f1",
-                        "background": "#f9f9f9",
-                        "primary": "#000000",
-                        "on-surface-variant": "#444748",
-                        "tertiary": "#000000",
-                        "on-tertiary-fixed-variant": "#3c4d00",
-                        "on-secondary": "#ffffff",
-                        "on-secondary-fixed-variant": "#004493",
-                        "on-primary-container": "#858383",
-                        "on-error": "#ffffff",
-                        "on-error-container": "#93000a",
-                        "surface-dim": "#dadada",
-                        "error": "#ba1a1a",
-                        "primary-fixed": "#e5e2e1",
-                        "secondary-fixed": "#d8e2ff",
-                        "on-background": "#1a1c1c",
-                        "tertiary-container": "#161e00",
-                        "surface-container-high": "#e8e8e8",
-                        "on-primary-fixed": "#1c1b1b",
-                        "surface-variant": "#e2e2e2",
-                        "inverse-primary": "#c8c6c5",
-                        "primary-container": "#1c1b1b",
-                        "outline-variant": "#c4c7c7",
-                        "surface": "#f9f9f9",
-                        "surface-container": "#eeeeee",
-                        "on-tertiary-fixed": "#161e00",
-                        "secondary-fixed-dim": "#adc6ff",
-                        "on-surface": "#1a1c1c",
-                        "primary-fixed-dim": "#c8c6c5",
-                        "on-secondary-container": "#fefcff",
-                        "on-tertiary": "#ffffff",
-                        "error-container": "#ffdad6",
-                        "on-primary": "#ffffff",
-                        "surface-container-highest": "#e2e2e2",
-                        "tertiary-fixed": "#c3f400",
-                        "secondary-container": "#0070eb",
-                        "tertiary-fixed-dim": "#abd600",
-                        "inverse-surface": "#2f3131",
-                        "outline": "#747878",
-                        "on-secondary-fixed": "#001a41",
-                        "on-tertiary-container": "#718e00",
-                        "on-primary-fixed-variant": "#474746",
-                        "surface-container-lowest": "#ffffff",
-                        "surface-bright": "#f9f9f9",
-                        "surface-tint": "#5f5e5e",
-                        "secondary": "#0058bc"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "section-gap": "120px",
-                        "margin-desktop": "64px",
-                        "gutter": "24px",
-                        "unit": "8px",
-                        "margin-mobile": "20px",
-                        "container-max": "1440px"
-                    },
-                    "fontFamily": {
-                        "display-lg": ["Inter"],
-                        "body-lg": ["Inter"],
-                        "body-md": ["Inter"],
-                        "headline-lg": ["Inter"],
-                        "headline-md": ["Inter"],
-                        "headline-lg-mobile": ["Inter"],
-                        "label-caps": ["JetBrains Mono"]
-                    },
-                    "fontSize": {
-                        "display-lg": ["80px", {"lineHeight": "88px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
-                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                        "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
-                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                        "headline-lg-mobile": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
-                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
-                    }
-                }
-            }
-        }
-    </script>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
-<body class="bg-background font-body-md text-on-surface overflow-x-hidden">
-<!-- Top Navigation Bar -->
-<header class="fixed top-0 w-full z-50 glass-panel border-b border-outline-variant/10 shadow-sm glide-in-top">
-<div class="flex items-center justify-between px-margin-mobile md:px-margin-desktop h-20 w-full max-w-container-max mx-auto">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-3xl">architecture</span>
-<span class="font-headline-lg text-2xl font-bold tracking-tight text-on-surface">LuxeFinish</span>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 border-b border-white/20 bg-white/70 backdrop-blur-[32px] shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<div class="max-w-[1440px] mx-auto flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20">
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-primary">ARCHITECH AI</span>
+<div class="hidden md:flex gap-10 items-center">
+<a class="text-secondary font-semibold border-b-2 border-secondary pb-1 font-body-md text-body-md" href="#">Services</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Réalisations</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Processus</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">À Propos</a>
 </div>
-<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-bold text-sm">Get Started</button>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-xl font-body-md hover:opacity-80 active:scale-[0.98] transition-all duration-300">
+                Obtenir une soumission
+            </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative pt-32 pb-section-gap overflow-hidden">
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+<div class="max-w-4xl">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-8">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant">Technologie de Précision IA</span>
+</div>
+<h1 class="font-display-lg text-display-lg mb-8 leading-tight">
+                    Finition Haute Couture pour vos Intérieurs
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-12">
+                    Fusionner l'expertise artisanale avec la précision chirurgicale de l'intelligence artificielle pour des résultats architecturaux impeccables.
+                </p>
+<div class="flex flex-col md:flex-row gap-4">
+<button class="bg-primary text-on-primary px-10 py-5 rounded-xl font-headline-md hover:opacity-90 active:scale-[0.98] transition-all">
+                        Obtenir une soumission
+                    </button>
+<button class="bg-secondary-container text-on-secondary-container px-10 py-5 rounded-xl font-headline-md flex items-center justify-center gap-3 hover:shadow-lg active:scale-[0.98] transition-all glow-blue">
+<span class="material-symbols-outlined">analytics</span>
+                        Estimation IA
+                    </button>
+</div>
+</div>
+</div>
+<!-- Hero Image Context -->
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+<img class="w-full h-full object-cover" data-alt="A wide-angle shot of a luxurious, minimalist living room with pristine white plaster walls and sharp architectural lines. The lighting is soft and cinematic, casting delicate shadows that emphasize the flawless finish of the surfaces. The overall aesthetic is ultra-clean and modern, utilizing a monochrome palette with deep black accents and expansive white space typical of high-end architectural photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC__bnUFtf7vEIexJqyX3nvBV4tdwJFrXkCwYg1bffo-nd6uTKJNyy4tTOuadhwPwhF9x9btRhxHzHDE1Vyvn_CF9JqlRRWWPXa5InNHZihLFkcColkslRdu5OQlyVE9-Yg7mxTtED2uizJvyGZqKMEzVXQNxU7vhMegv-GMkwfIDc4bkwrozwW7saTkaSZqaXuezvOjawW61UV0kCJQ_iRASg-tk-hB2ujB-bW4p5PvBneJy0XKVqGc62drFrwKf__Mr9MVb4eUvq4"/>
 </div>
 </header>
-<main class="pt-20">
-<!-- Hero Section -->
-<section class="relative px-margin-mobile pt-16 pb-section-gap text-center overflow-hidden">
-<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed border border-secondary-container/20 mb-8">
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
-<span class="font-label-caps uppercase text-[10px] tracking-widest">Nouveau : Estimation IA disponible</span>
+<!-- AI Estimation Dashboard -->
+<section class="py-section-gap bg-primary-container text-on-primary-fixed-variant relative overflow-hidden">
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<div class="lg:col-span-4 flex flex-col justify-center">
+<span class="font-label-caps text-label-caps text-secondary-fixed-dim mb-4 tracking-[0.2em]">ALGORITHME DE MESURE</span>
+<h2 class="font-headline-lg text-headline-lg text-white mb-6">Calcul Précis instantané.</h2>
+<p class="text-on-primary-container font-body-md mb-8">Déposez vos plans ou photos d'espace. Notre IA analyse les textures, les surfaces et les angles pour générer un devis précis à 99.8% en quelques secondes.</p>
 </div>
-<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-6 leading-tight max-w-[320px] mx-auto">
-                Experts en peinture intérieure, gypse et finition haut de gamme à Montréal
-            </h1>
-<div class="flex flex-col gap-4 mt-10">
-<button class="w-full bg-primary text-on-primary h-16 rounded-xl font-bold text-lg flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
-                    Obtenir une soumission
-                </button>
-<button class="w-full bg-secondary-container text-on-secondary h-16 rounded-xl font-bold text-lg flex items-center justify-center gap-2 glow-blue active:scale-[0.98] transition-transform relative overflow-hidden group">
-<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
-                    Estimation IA
-                </button>
+<div class="lg:col-span-8">
+<div class="ai-overlay rounded-[32px] p-8 border border-white/10 relative">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Upload Zone -->
+<div class="aspect-square rounded-2xl border-2 border-dashed border-outline/30 flex flex-col items-center justify-center relative overflow-hidden group cursor-pointer">
+<div class="scan-line"></div>
+<span class="material-symbols-outlined text-secondary-fixed-dim text-5xl mb-4">cloud_upload</span>
+<p class="font-label-caps text-label-caps text-white">GLISSER VOS FICHIERS ICI</p>
+<img class="absolute inset-0 w-full h-full object-cover opacity-20 transition-opacity group-hover:opacity-40" data-alt="Close-up of a high-resolution laser scanner being used on a smooth architectural surface, with glowing blue light particles and digital grid lines superimposed. The lighting is dramatic and dark, emphasizing the precision of the technology. The scene conveys a sense of high-tech accuracy and advanced engineering in interior finishing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHGWcp4QFQOOZ69GjlKeE8pX8YrmcQCTLu11xuoaKecpJQzZXvZNiddzVgAwF_0lbuB9xdL2nld3AXJeXOYqZHdIBb-bUV6Esec3LYArjNH1OOWoj16OJVgOU4mEQUtcHn7Ve5BH6icYBTOeKmd60g2ZjWGb6BPJFBoI0p4UkYfplcAH3lK067F3X0F8IO1VkAhh_DF8qjPWRvBKbGrtCGNckCXmKgJgx9Rj-XA_A6lgc9EB-byUPXdZ4gthHLqTojo7JcEmHCBy3W"/>
 </div>
-<!-- Background Decorative Element -->
-<div class="absolute -z-10 top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-secondary-fixed/30 rounded-full blur-[120px]"></div>
-</section>
-<!-- AI Calculator / Scan Interface -->
-<section class="px-margin-mobile mb-section-gap">
-<div class="ai-overlay rounded-[32px] p-8 border border-white/10 shadow-2xl overflow-hidden relative">
-<div class="flex items-center justify-between mb-8">
-<div class="flex flex-col">
-<span class="font-label-caps text-secondary-fixed-dim uppercase text-[10px]">Système de Scan LuxeAI</span>
-<span class="text-white font-headline-md text-xl">Calculateur de Finition</span>
+<!-- AI Metrics -->
+<div class="flex flex-col gap-6">
+<div class="p-6 rounded-2xl bg-white/5 border border-white/5">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label-caps text-label-caps text-outline-variant">CONFIANCE ANALYSE</span>
+<span class="font-label-caps text-label-caps text-tertiary-fixed-dim">99.8%</span>
 </div>
-<div class="flex items-center gap-2 bg-tertiary-container text-tertiary-fixed px-3 py-1 rounded-full border border-tertiary-fixed/20">
-<span class="w-2 h-2 rounded-full bg-tertiary-fixed animate-pulse"></span>
-<span class="font-label-caps text-[10px]">98.4% PRÉCISION</span>
+<div class="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-fixed-dim w-[99.8%]"></div>
 </div>
 </div>
-<div class="aspect-square w-full rounded-2xl border-2 border-dashed border-white/20 bg-white/5 flex flex-col items-center justify-center text-center p-6 relative group transition-colors hover:bg-white/10">
-<span class="material-symbols-outlined text-white/40 text-5xl mb-4 group-hover:scale-110 transition-transform">add_a_photo</span>
-<p class="text-white font-medium text-lg">Déposez vos photos</p>
-<p class="text-white/40 text-sm mt-2">Analysez vos murs en temps réel via notre IA propriétaire</p>
-<!-- Scanline effect -->
-<div class="absolute top-0 left-0 w-full h-[2px] bg-secondary-container blur-sm opacity-50 animate-[scan_3s_infinite_linear]"></div>
-</div>
-<style>
-                    @keyframes scan {
-                        0% { top: 0; }
-                        100% { top: 100%; }
-                    }
-                </style>
-<div class="mt-8 grid grid-cols-2 gap-4">
-<div class="p-4 rounded-xl bg-white/5 border border-white/5">
-<span class="font-label-caps text-white/40 text-[10px] block mb-1">DÉLAI ESTIMÉ</span>
-<span class="text-white font-bold text-lg">24-48h</span>
-</div>
-<div class="p-4 rounded-xl bg-white/5 border border-white/5">
-<span class="font-label-caps text-white/40 text-[10px] block mb-1">RÉPONSE IA</span>
-<span class="text-white font-bold text-lg">&lt; 30s</span>
+<div class="p-6 rounded-2xl bg-white/5 border border-white/5">
+<span class="font-label-caps text-label-caps text-outline-variant mb-2 block">MATÉRIAUX DÉTECTÉS</span>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded bg-secondary-container text-on-secondary-container font-label-caps text-[10px]">DRYWALL XP</span>
+<span class="px-3 py-1 rounded bg-white/10 text-white font-label-caps text-[10px]">ULTRA-GLOSS FINISH</span>
 </div>
 </div>
-<div class="mt-6 font-label-caps text-[12px] text-tertiary-fixed-dim opacity-80 flex items-center gap-2 justify-center">
-<span class="material-symbols-outlined text-[14px]">terminal</span>
-<span>_analyser_structure_interieure_v3.0.1</span>
+<div class="p-6 rounded-2xl bg-secondary text-white glow-blue">
+<span class="font-label-caps text-label-caps opacity-70 mb-2 block">ESTIMATION GÉNÉRÉE</span>
+<span class="text-4xl font-bold tracking-tight">4,850.00 $</span>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
 <!-- Services Section -->
-<section class="px-margin-mobile mb-section-gap">
-<h2 class="font-headline-lg-mobile text-center mb-12">Expertise de Précision</h2>
-<div class="grid grid-cols-1 gap-6">
-<!-- Card 1 -->
-<div class="group relative aspect-[4/5] rounded-[24px] overflow-hidden bg-surface-container-high border border-outline-variant/10 shadow-sm">
-<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Close-up of a professional installer securing gypsum boards in a luxury residential unit. The lighting is bright and architectural, highlighting the crisp edges and perfect alignment. Minimalist white aesthetic with clean lines and focus on technical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDO8K2zoQLfeo24qQz1ti_0zfIlC6LPUGWs4aW8XjWl5dBb1gR50fmzo4YPJZO9yJU1aGp6YaT_WW53JQYpBRHtZwYvN8kUI3mqrfZjeqVMSzb-QR2SAsWN9b10cSuUtb3Fxom26U7RiXEPtnscm1Mg7tPL76HsxKyVH_mRHztlnBFCTHwObBwHAgmmgiicFjCbOzWN3Kl6g-2CTJOtYL-1h1KZCZblmwp6Y66Xhe9QMNzJQGY2kXMA4zlISDK1ILWtpv6MIGeiN8AX"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-<div class="absolute bottom-0 left-0 p-8 w-full">
-<h3 class="text-white font-headline-md text-xl mb-2">Pose de Gypse</h3>
-<p class="text-white/70 text-sm">Installation structurelle de haute précision pour architectures complexes.</p>
+<section class="py-section-gap">
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-20">
+<span class="font-label-caps text-label-caps text-secondary mb-4 block">NOS EXPERTISES</span>
+<h2 class="font-headline-lg text-headline-lg">L'Art de la Finition Invisible.</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Service Card 1 -->
+<div class="group relative aspect-[4/5] overflow-hidden rounded-[24px] bg-surface-container shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A professional craftsman installing gypsum boards in a modern residential project. The lighting is crisp, highlighting the sharp edges and perfectly level alignment of the drywall. The scene is shot in a high-key, bright light-mode style, showcasing the cleanliness and precision of the installation process." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9TvOdgKHsCL3qvfwr2KakiC26tawsk6ClTOmvP2XThZ2ghTEWCcuCR3rHNe7xvnr7SINFtdirgAYII75GQiBKXh1_x9kkxtblkYiTgEDeq08egb4vQAne_ZuSixQzBVrD3xOPm3U7rxYlPHP-A4SY6BKUZAQg2m4vFART0uiJsvcFARuUPTeE33E3XGMuyUFMEC0Tz1U8U4GormbS7X01dHI7NhnLiWxek8CtqepiPsO5-kcLX6PHU-PAdPnWC0HslhenQQh8nl2C"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
+<span class="font-label-caps text-label-caps text-tertiary-fixed-dim mb-2 uppercase">Installation</span>
+<h3 class="font-headline-md text-headline-md text-white">Pose de Gypse Premium</h3>
 </div>
 </div>
-<!-- Card 2 -->
-<div class="group relative aspect-[4/5] rounded-[24px] overflow-hidden bg-surface-container-high border border-outline-variant/10 shadow-sm">
-<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Extreme close-up of a professional taping and jointing tool applying compound to a drywall seam. The finish is incredibly smooth, reflecting a soft gallery-like lighting. The palette consists of muted greys and bright whites, emphasizing a flawless surface finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnIfPAZkUQhoVVjHloCV9KBpyowRlRpcbyvBPaDPexh_9fIOAyro0m4dR4ZWgGzXV4ufk3CEzAXBd39oQ1mhjGLIH5BSm8vAcFS5y3SZc6vDJdLi3xbPyh5NNF4whJtJJeywXkcGGvrDtJPGtvf6ttKkl5-gtJgRoSYVDHFZG_DE7YuQjD-c4ernvorEHDTZiqRLhWGK-Jwc9vPEIcV3G3GPf3iX6RGTa9mrl_01EWbE65pwsFUhoWyw7tvxEZRp08NStvYAuaSguY"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-<div class="absolute bottom-0 left-0 p-8 w-full">
-<h3 class="text-white font-headline-md text-xl mb-2">Tirage de Joints</h3>
-<p class="text-white/70 text-sm">Ponçage robotique et manuel pour une surface invisible sous tout éclairage.</p>
+<!-- Service Card 2 -->
+<div class="group relative aspect-[4/5] overflow-hidden rounded-[24px] bg-surface-container shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A close-up shot of a wall joint being perfectly finished with joint compound. The texture is smooth and seamless, with soft light skimming across the surface to reveal no imperfections. The aesthetic is ultra-minimalist, focusing on the craftsmanship and high-quality materials used in premium finishing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABQTaOo5ZGdUqYQnLVti2a2h7pcIsQCRUrCR8y660zDxcpwhMbDh83RKOeEFdY-nQMQrJEZuOzCfyWjXjjXfJfAd_wQWeoNM-UTnYV8u8-CWRIz-PinOy52eoox4R74MBlsiW7JL_cXunOyDN0YSr1AME9o6MvqJRiPbCHNYLAHDgZTsxOtX4USKGXbanl3f2p9pM17thlIJ0deRQVHOog2G85vLeukWso_bPqWUSKhYi_jNb4hZJMjqe52CuhEmqhRDM8ub4T__qi"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
+<span class="font-label-caps text-label-caps text-tertiary-fixed-dim mb-2 uppercase">Précision</span>
+<h3 class="font-headline-md text-headline-md text-white">Tirage de Joints IA</h3>
 </div>
 </div>
-<!-- Card 3 -->
-<div class="group relative aspect-[4/5] rounded-[24px] overflow-hidden bg-surface-container-high border border-outline-variant/10 shadow-sm">
-<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A modern designer interior with a large, perfectly painted deep charcoal accent wall. The paint has a premium matte finish that absorbs light beautifully. The room is minimalist with high-end architectural furniture and vast natural light from floor-to-ceiling windows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5sTr-nqWa4wtQC59g1ac6qrPIpKsuAEL-gF7LHznpQXDR4U8p3sLbKeJd1VLmnAnhPp5Y-YhAiJKCwPyYbD3Ym5G0KKnOddZHJCnfL6vjuuPEr8gdY3ULn2hva6T74ElCWYKGhYu9OKVC1MWft-L4jFGew5GYQmNpm69Sloyyu0nVVOT2r20W3Xy8IurCOnpSUbn4rpBFRwHe3UT71TU5932sgzESTzKvowXB3rmOVEfeHjalRdqJ6-xZ23dpDf84I-RGcPyOIYjK"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-<div class="absolute bottom-0 left-0 p-8 w-full">
-<h3 class="text-white font-headline-md text-xl mb-2">Peinture Élite</h3>
-<p class="text-white/70 text-sm">Finition au pistolet ou rouleau premium utilisant des pigments haute densité.</p>
+<!-- Service Card 3 -->
+<div class="group relative aspect-[4/5] overflow-hidden rounded-[24px] bg-surface-container shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="An interior wall with a luxury satin finish paint applied. The color is a sophisticated neutral gray, catching the natural light from a nearby window. The finish is uniform and deep, reflecting the high-end quality of architectural painting. The overall mood is calm and professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_XDzo8wAtN0ac1LvkAG6m7CW8HNxOJrQETfPDYTKTbZOYMrEnngW9Ip5XGJUqZ3P26jTbfEawSaWeq4sl6Fro1Pv4i7ed-Fj7ISabvqVo2rw2qa-LDVJ8LCzKcu2xP9mhptEddgEkKd-NwyjBpdvU28Ot34cOZHhX52cyilcu-49Dp55lunGd6DOESsN74kiQpJgHiA6IOUby_85IWxwP2_gMd0mQoCPiERhhlFwhhCb4n3YfEIa-L4vvTB0vGDj4rTMHQ4moA3CG"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
+<span class="font-label-caps text-label-caps text-tertiary-fixed-dim mb-2 uppercase">Couleur</span>
+<h3 class="font-headline-md text-headline-md text-white">Peinture de Luxe</h3>
 </div>
 </div>
-<!-- Card 4 -->
-<div class="group relative aspect-[4/5] rounded-[24px] overflow-hidden bg-surface-container-high border border-outline-variant/10 shadow-sm">
-<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A restored high-end heritage building interior with perfectly smooth walls and modern finishings. The scene combines historic architectural elements with ultra-modern textures, bathed in warm, sophisticated lighting that highlights the restoration quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHNsusRX9Hr2bjZwRMG80Mz9rEg_DaJqsYS7nVYMmN8aepUPt8uWsFEGHyAMZ472wt35XnF8CZeVi3E6hQ2ajHl_88Hir6R4HtKhsGkVC1NGUbtbKzN84MojGei1QcwHVM4z3KwCT2yIv1nBqXPTK_dqmdaJ4OGY19Cn2r-YmlntXE-BW4j_EbdbkYxiT13J_GIZvrEySD-EVuQOC1RS--pVEnVtbIBYcOQ2ZFcmaOjIb8D1VDpHSo93j5BuyhY66ILOeYD6PqLE8W"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-<div class="absolute bottom-0 left-0 p-8 w-full">
-<h3 class="text-white font-headline-md text-xl mb-2">Restauration</h3>
-<p class="text-white/70 text-sm">Redonner vie aux surfaces complexes avec des techniques de conservation modernes.</p>
+<!-- Service Card 4 -->
+<div class="group relative aspect-[4/5] overflow-hidden rounded-[24px] bg-surface-container shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Restoration of a ceiling after water damage, showing a master craftsman carefully blending new textures with the existing architecture. The lighting is warm and reassuring, emphasizing the care and restoration process. The style is clean and professional, showcasing the 'before and after' potential." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAql7I43YCo3REt8mEdJJJEsq0AN4r27Hv3HzuwxkM1XDE5pKrhMf81SK_N4yMfhO3FSwihrNlsE6QjcyyhSTfvJ87POVDHt1cu1xPYKyGIWFPnhuD2lCXjwimqPm2i9IdV1-HZ_FgB-C90vyEaCZ5J1DjhlNksnj3xw3dLIYpWheDCCRz3V_yKmzOmrBQteFoSghOoBsMiuregYKTUNkaGJpOHuT05VFCkmrhHLok0kkcJqa6cEHRbR7XsUYmi6_OgNNOfkDSZhiUV"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
+<span class="font-label-caps text-label-caps text-tertiary-fixed-dim mb-2 uppercase">Urgence</span>
+<h3 class="font-headline-md text-headline-md text-white">Dégâts d'eau</h3>
+</div>
 </div>
 </div>
 </div>
 </section>
-<!-- Before/After Section -->
-<section class="mb-section-gap bg-primary py-24 px-margin-mobile">
-<h2 class="text-white font-headline-lg-mobile text-center mb-4">Avant. Après. Invisible.</h2>
-<p class="text-white/60 text-center mb-12 max-w-xs mx-auto">Observez la transformation radicale de nos projets de gypse et peinture.</p>
-<div class="relative aspect-video rounded-2xl overflow-hidden border border-white/10 group">
-<img class="w-full h-full object-cover" data-alt="A split-screen comparison showing a raw, unfinished construction site on the left and a stunningly finished luxury living room on the right. The transformation showcases perfect drywall and premium white paint. High-contrast, professional architectural photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDacMRMphtbt1FNcr1AHA60kkcvLeGFYs4Xvz9esEkoPl6CbZsGTjGGLQVre73u5yHcf-iWzO1I-ErMrSkWAA4028uDs2uaGHWiEorsSp3Bb6X0ywIR9K842M9gvNRqpiWWMc6lzZb1QJ6Gd0qzqLGoH3OMEetAatJPKM4MFIBIQjdJPfUozY8uTErzg49dBhGJ4hC7QkuRcKk_OnMNNGc44xTR9pf9_DxPp4mngMJqHU_JjTP9mCPcuCdbtMEc_jOOKjz5OZCaaA7P"/>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg cursor-ew-resize">
-<span class="material-symbols-outlined text-primary">unfold_more_double</span>
-</div>
-<div class="absolute bottom-4 left-4 bg-black/50 backdrop-blur-md text-white text-[10px] px-3 py-1 rounded-full border border-white/20 uppercase tracking-widest font-label-caps">Brut</div>
-<div class="absolute bottom-4 right-4 bg-secondary-container/80 backdrop-blur-md text-white text-[10px] px-3 py-1 rounded-full border border-white/20 uppercase tracking-widest font-label-caps">LuxeFinish</div>
-</div>
-</section>
-<!-- Process Section -->
-<section class="px-margin-mobile mb-section-gap">
-<h2 class="font-headline-lg-mobile text-center mb-16">Le Processus</h2>
-<div class="space-y-16">
-<div class="flex gap-6 relative">
-<div class="absolute top-10 left-[19px] bottom-[-40px] w-px bg-outline-variant/30"></div>
-<div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm relative z-10">1</div>
+<!-- Before/After Showcase -->
+<section class="py-section-gap bg-surface-container-low">
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 <div>
-<h4 class="font-headline-md text-lg mb-2">Capturer</h4>
-<p class="text-secondary text-sm">Utilisez notre interface IA pour scanner vos pièces ou uploader vos plans architecturaux.</p>
-</div>
-</div>
-<div class="flex gap-6 relative">
-<div class="absolute top-10 left-[19px] bottom-[-40px] w-px bg-outline-variant/30"></div>
-<div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm relative z-10">2</div>
+<span class="font-label-caps text-label-caps text-secondary mb-4 block">TRANSFORMATION RADICALE</span>
+<h2 class="font-headline-lg text-headline-lg mb-8 leading-tight">De l'ossature brute à la perfection visuelle.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10">Grâce à notre protocole de numérisation, nous identifions les imperfections structurelles avant même la première couche. Le résultat est une surface mathématiquement plane, prête pour les éclairages les plus exigeants.</p>
+<div class="flex gap-8 border-l border-outline-variant pl-8">
 <div>
-<h4 class="font-headline-md text-lg mb-2">Analyser</h4>
-<p class="text-secondary text-sm">Notre moteur IA identifie les matériaux, les surfaces et estime les quantités de gypse et peinture requises.</p>
+<span class="block text-4xl font-bold mb-1">2x</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Plus rapide</span>
 </div>
-</div>
-<div class="flex gap-6 relative">
-<div class="absolute top-10 left-[19px] bottom-[-40px] w-px bg-outline-variant/30"></div>
-<div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm relative z-10">3</div>
 <div>
-<h4 class="font-headline-md text-lg mb-2">Valider</h4>
-<p class="text-secondary text-sm">Rencontre finale sur site pour confirmer les détails techniques et les choix de finitions premium.</p>
+<span class="block text-4xl font-bold mb-1">0</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Imperfections</span>
 </div>
 </div>
-<div class="flex gap-6">
-<div class="flex-shrink-0 w-10 h-10 rounded-full bg-secondary-container text-white flex items-center justify-center font-bold text-sm relative z-10">4</div>
-<div>
-<h4 class="font-headline-md text-lg mb-2">Transformer</h4>
-<p class="text-secondary text-sm">Exécution par nos maîtres-artisans avec un respect strict du calendrier et de la propreté.</p>
+</div>
+<div class="relative aspect-[16/10] rounded-[32px] overflow-hidden shadow-2xl group">
+<img class="w-full h-full object-cover" data-alt="A split-screen comparison of an architectural interior. The left side shows raw, unfinished drywall and exposed studs, while the right side displays the finished result with smooth, painted walls and luxury lighting. The lighting is consistent across both sides to highlight the transformation. The style is professional and high-contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHYHRgHB_ax1JcGkBreUlPMhPXmSFNxbd0I3wA93WF9pv7EnJjgrigYQT6qdWid3EQds9LgLj0cnjl6xbQve6tNUVkKUAH3HdNth-iR79pa1mq6bcNSCXex2zX8Crya0S13l3gpSgvwGZpSSQGhV5RvMvy_QHSuZLtl0xkLqXcTo5KBaCOehi6GkM0PHt7r24xTDRNuRRHcAq7s8sc3LXKhQOchaO_DeTeq0zAWYLx7vdAVqOIE9M63Z3vVEu0ctc74F8-TJaxOryw"/>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1 h-full bg-white shadow-2xl z-20">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-xl">
+<span class="material-symbols-outlined text-primary">unfold_more</span>
+</div>
+</div>
 </div>
 </div>
 </div>
 </section>
-<!-- Testimonials -->
-<section class="px-margin-mobile mb-section-gap">
-<div class="bg-surface-container-low rounded-[32px] p-8">
-<div class="flex items-center gap-2 mb-6 justify-center">
-<div class="flex">
-<span class="material-symbols-outlined text-[#FFB800]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[#FFB800]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[#FFB800]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[#FFB800]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[#FFB800]" style="font-variation-settings: 'FILL' 1;">star</span>
+<!-- Process Timeline -->
+<section class="py-section-gap">
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop">
+<h2 class="font-headline-lg text-headline-lg text-center mb-24">Le Protocole ArchiTech.</h2>
+<div class="relative grid grid-cols-1 md:grid-cols-4 gap-12">
+<!-- Line -->
+<div class="hidden md:block absolute top-12 left-0 w-full h-[1px] bg-outline-variant z-0"></div>
+<!-- Step 1 -->
+<div class="relative z-10 text-center">
+<div class="w-24 h-24 rounded-full bg-white shadow-lg mx-auto flex items-center justify-center mb-8 border border-outline-variant/30">
+<span class="material-symbols-outlined text-secondary text-4xl">photo_camera</span>
 </div>
-<span class="font-bold text-lg">5.0/5</span>
+<h3 class="font-headline-md text-headline-md mb-4">Capture</h3>
+<p class="text-on-surface-variant font-body-md">Scan 3D laser de l'espace existant pour une précision millimétrique.</p>
 </div>
-<div class="overflow-hidden">
-<div class="flex transition-transform duration-500">
-<div class="w-full flex-shrink-0 text-center">
-<p class="text-lg italic text-on-surface mb-6">"Le niveau de finition est tout simplement inégalé à Montréal. LuxeFinish a transformé mon condo avec une précision chirurgicale."</p>
-<p class="font-bold">— Marc-Antoine L., Développeur Immobilier</p>
+<!-- Step 2 -->
+<div class="relative z-10 text-center">
+<div class="w-24 h-24 rounded-full bg-white shadow-lg mx-auto flex items-center justify-center mb-8 border border-outline-variant/30">
+<span class="material-symbols-outlined text-secondary text-4xl">model_training</span>
 </div>
+<h3 class="font-headline-md text-headline-md mb-4">Analyse IA</h3>
+<p class="text-on-surface-variant font-body-md">Détection automatisée des points critiques et calcul des volumes.</p>
 </div>
+<!-- Step 3 -->
+<div class="relative z-10 text-center">
+<div class="w-24 h-24 rounded-full bg-white shadow-lg mx-auto flex items-center justify-center mb-8 border border-outline-variant/30">
+<span class="material-symbols-outlined text-secondary text-4xl">verified</span>
 </div>
-<div class="flex justify-center gap-2 mt-8">
-<span class="w-2 h-2 rounded-full bg-primary"></span>
-<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
-<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+<h3 class="font-headline-md text-headline-md mb-4">Validation</h3>
+<p class="text-on-surface-variant font-body-md">Optimisation des ressources et validation humaine experte.</p>
+</div>
+<!-- Step 4 -->
+<div class="relative z-10 text-center">
+<div class="w-24 h-24 rounded-full bg-primary shadow-lg mx-auto flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-white text-4xl">magic_button</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">Transformation</h3>
+<p class="text-on-surface-variant font-body-md">Exécution artisanale sublimée par la technologie de pointe.</p>
+</div>
 </div>
 </div>
 </section>
-<!-- Local SEO Towns -->
-<section class="px-margin-mobile mb-section-gap">
-<h2 class="font-headline-md text-center mb-8">Nous desservons votre région</h2>
-<div class="flex flex-wrap justify-center gap-3">
-<span class="px-4 py-2 rounded-full bg-surface-container border border-outline-variant/20 text-sm font-medium">Montréal</span>
-<span class="px-4 py-2 rounded-full bg-surface-container border border-outline-variant/20 text-sm font-medium">Laval</span>
-<span class="px-4 py-2 rounded-full bg-surface-container border border-outline-variant/20 text-sm font-medium">Rive-Sud</span>
-<span class="px-4 py-2 rounded-full bg-surface-container border border-outline-variant/20 text-sm font-medium">West Island</span>
-<span class="px-4 py-2 rounded-full bg-surface-container border border-outline-variant/20 text-sm font-medium">Plateau</span>
-<span class="px-4 py-2 rounded-full bg-surface-container border border-outline-variant/20 text-sm font-medium">Ville-Marie</span>
+<!-- Testimonials & Regions -->
+<section class="py-section-gap bg-primary text-white">
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-12">L'élite nous fait confiance.</h2>
+<div class="flex flex-col gap-8">
+<div class="p-8 rounded-[24px] bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+<div class="flex gap-1 text-tertiary-fixed-dim mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-lg text-body-lg italic mb-6">"Le niveau de précision est inégalé. Leur IA a détecté un décalage de structure que même mon architecte n'avait pas vu."</p>
+<span class="font-label-caps text-label-caps text-outline-variant">— Marc-André L., Développeur Immobilier</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col justify-center">
+<span class="font-label-caps text-label-caps text-secondary-fixed-dim mb-6 block">TERRITOIRES DESSERVIS</span>
+<div class="flex flex-wrap gap-3">
+<span class="px-6 py-3 rounded-full border border-white/20 hover:border-secondary transition-colors cursor-default">Montréal</span>
+<span class="px-6 py-3 rounded-full border border-white/20 hover:border-secondary transition-colors cursor-default">Laval</span>
+<span class="px-6 py-3 rounded-full border border-white/20 hover:border-secondary transition-colors cursor-default">Rive-Sud</span>
+<span class="px-6 py-3 rounded-full border border-white/20 hover:border-secondary transition-colors cursor-default">Rive-Nord</span>
+<span class="px-6 py-3 rounded-full border border-white/20 hover:border-secondary transition-colors cursor-default">Vaudreuil</span>
+<span class="px-6 py-3 rounded-full border border-white/20 hover:border-secondary transition-colors cursor-default">Mirabel</span>
+</div>
+<div class="mt-12 p-8 glass-panel rounded-[24px] text-primary">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-white">location_on</span>
+</div>
+<div>
+<span class="font-headline-md block">Disponibilité immédiate</span>
+<p class="text-on-surface-variant font-body-md">Projets résidentiels et commerciaux.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section>
-<!-- Contact Section -->
-<section class="px-margin-mobile mb-section-gap">
-<div class="bg-primary text-on-primary rounded-[32px] p-10 text-center">
-<h2 class="font-headline-lg-mobile mb-6">Prêt à transformer votre intérieur ?</h2>
-<p class="text-white/60 mb-10">Laissez-nous élever le standard de votre projet résidentiel ou commercial.</p>
-<form class="space-y-4">
-<input class="w-full bg-white/10 border-none rounded-xl h-14 px-6 text-white placeholder:text-white/40 focus:ring-2 focus:ring-secondary-container transition-all" placeholder="Nom complet" type="text"/>
-<input class="w-full bg-white/10 border-none rounded-xl h-14 px-6 text-white placeholder:text-white/40 focus:ring-2 focus:ring-secondary-container transition-all" placeholder="Email" type="email"/>
-<textarea class="w-full bg-white/10 border-none rounded-xl h-32 px-6 py-4 text-white placeholder:text-white/40 focus:ring-2 focus:ring-secondary-container transition-all" placeholder="Décrivez votre projet"></textarea>
-<button class="w-full bg-white text-primary h-16 rounded-xl font-bold text-lg mt-4">Envoyer la demande</button>
+<!-- Contact Form Section -->
+<section class="py-section-gap relative">
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="max-w-4xl mx-auto rounded-[48px] overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.08)] bg-white border border-outline-variant/20">
+<div class="grid grid-cols-1 md:grid-cols-2">
+<div class="bg-primary p-12 text-white flex flex-col justify-between">
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-6">Prêt pour le futur ?</h2>
+<p class="text-outline-variant font-body-lg">Contactez-nous pour une estimation assistée par IA ou un rendez-vous sur site.</p>
+</div>
+<div class="flex flex-col gap-4 mt-20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim">call</span>
+<span class="font-body-md">+1 (514) 555-0192</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim">mail</span>
+<span class="font-body-md">contact@architech-ai.ca</span>
+</div>
+</div>
+</div>
+<div class="p-12">
+<form class="flex flex-col gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Nom complet</label>
+<input class="bg-surface-container-low border-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 transition-all py-3 px-0" placeholder="Jean Dupont" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Type de projet</label>
+<select class="bg-surface-container-low border-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 transition-all py-3 px-0">
+<option>Résidentiel Haut de Gamme</option>
+<option>Commercial / Condos</option>
+<option>Restauration Après Sinistre</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Message</label>
+<textarea class="bg-surface-container-low border-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 transition-all py-3 px-0" placeholder="Décrivez votre vision..." rows="4"></textarea>
+</div>
+<button class="bg-primary text-on-primary py-5 rounded-2xl font-headline-md hover:opacity-90 active:scale-[0.98] transition-all mt-6 shadow-xl">
+                                Envoyer la demande
+                            </button>
 </form>
 </div>
+</div>
+</div>
+</div>
 </section>
-</main>
 <!-- Footer -->
-<footer class="bg-surface-container-lowest border-t border-outline-variant/10 py-16 px-margin-mobile">
-<div class="flex flex-col items-center text-center">
-<div class="flex items-center gap-2 mb-8">
-<span class="material-symbols-outlined text-primary text-2xl">architecture</span>
-<span class="font-headline-xl text-xl font-bold text-on-surface">LuxeFinish</span>
+<footer class="w-full py-section-gap bg-surface dark:bg-inverse-surface border-t border-outline-variant">
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-8">
+<span class="font-headline-md text-headline-md text-primary">ARCHITECH AI</span>
+<div class="flex gap-10">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors uppercase" href="#">Mentions Légales</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors uppercase" href="#">Confidentialité</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors uppercase" href="#">Contact</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors uppercase" href="#">Instagram</a>
 </div>
-<div class="grid grid-cols-2 gap-x-12 gap-y-4 mb-12">
-<a class="text-secondary hover:text-on-surface transition-colors" href="#">Gypsum Installation</a>
-<a class="text-secondary hover:text-on-surface transition-colors" href="#">Premium Painting</a>
-<a class="text-secondary hover:text-on-surface transition-colors" href="#">Montreal</a>
-<a class="text-secondary hover:text-on-surface transition-colors" href="#">Laval</a>
-<a class="text-secondary hover:text-on-surface transition-colors" href="#">Privacy Policy</a>
-<a class="text-secondary hover:text-on-surface transition-colors" href="#">Terms</a>
-</div>
-<p class="text-secondary font-body-md text-sm opacity-60">
-                © 2024 LuxeFinish. Precision in Every Layer. All rights reserved.
+<p class="font-label-caps text-label-caps text-on-surface-variant">
+                © 2024 ArchiTech AI. Précision architecturale par intelligence artificielle.
             </p>
 </div>
 </footer>
-<!-- Sticky Bottom Navigation / Conversion Bar -->
-<div class="fixed bottom-0 left-0 w-full z-50 glass-panel shadow-[0_-10px_40px_rgba(0,0,0,0.1)] px-4 py-4">
-<div class="max-w-md mx-auto grid grid-cols-2 gap-3">
-<a class="h-14 bg-surface-container-highest text-primary rounded-xl flex items-center justify-center gap-2 font-bold border border-outline-variant/20" href="tel:+15140000000">
-<span class="material-symbols-outlined">call</span>
-                Appeler
-            </a>
-<button class="h-14 bg-secondary-container text-on-secondary rounded-xl flex items-center justify-center gap-2 font-bold glow-blue">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
-                Estimation IA
-            </button>
-</div>
-</div>
-<!-- Padding for sticky bottom bar -->
-<div class="h-24"></div>
 </body></html>
