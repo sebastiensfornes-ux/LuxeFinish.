@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LuxeFinish | Peinture & Gypse Montréal</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1" rel="stylesheet"/>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#000000",
+            secondary: "#0058bc",
+            background: "#f9f9f9"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-background text-black overflow-x-hidden">
+
+<header class="fixed top-0 left-0 w-full z-50 glass-panel border-b border-black/5">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-3xl">architecture</span>
+      <span class="text-2xl font-bold">LuxeFinish</span>
+    </div>
+
+    <a href="#contact" class="bg-black text-white px-6 py-3 rounded-full font-bold">
+      Soumission
+    </a>
+  </div>
+</header>
+
+<main class="pt-24">
+
+<section class="relative px-6 py-24 text-center overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-blue-100/40 to-transparent -z-10"></div>
+
+  <div class="max-w-4xl mx-auto">
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-700 mb-8">
+      <span class="material-symbols-outlined">auto_awesome</span>
+      <span class="uppercase text-xs tracking-widest font-bold">
+        Estimation IA disponible
+      </span>
+    </div>
+
+    <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+      Experts en peinture intérieure, gypse et finition haut de gamme
+    </h1>
+
+    <p class="text-xl text-black/70 max-w-2xl mx-auto mb-10">
+      Service professionnel à Montréal, Laval et Rive-Sud.
+      Soumission rapide et finition premium.
+    </p>
+
+    <div class="flex flex-col md:flex-row gap-4 justify-center">
+      <a href="#contact"
+         class="bg-black text-white px-8 py-5 rounded-2xl font-bold text-lg hover:scale-105 transition">
+        Obtenir une soumission
+      </a>
+
+      <a href="#ia"
+         class="bg-secondary text-white px-8 py-5 rounded-2xl font-bold text-lg glow-blue hover:scale-105 transition">
+        Estimation IA
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="ia" class="px-6 mb-32">
+  <div class="max-w-6xl mx-auto ai-overlay rounded-[32px] p-10 text-white">
+    <div class="grid lg:grid-cols-2 gap-10 items-center">
+
+      <div>
+        <p class="uppercase tracking-widest text-sm text-blue-300 mb-4">
+          Technologie LuxeAI
+        </p>
+
+        <h2 class="text-4xl font-bold mb-6">
+          Analyse intelligente de vos réparations
+        </h2>
+
+        <p class="text-white/70 text-lg mb-8">
+          Envoyez vos photos et obtenez une estimation automatique
+          en quelques secondes.
+        </p>
+
+        <button class="bg-secondary px-8 py-4 rounded-2xl font-bold">
+          Scanner mes murs
+        </button>
+      </div>
+
+      <div class="bg-white/5 border border-white/10 rounded-3xl p-8">
+        <div class="aspect-video rounded-2xl border-2 border-dashed border-white/20 flex items-center justify-center">
+          <div class="text-center">
+            <span class="material-symbols-outlined text-6xl mb-4">add_a_photo</span>
+            <p class="text-xl font-bold">Déposez vos photos</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 mt-6">
+          <div class="bg-white/5 rounded-2xl p-4">
+            <div class="text-sm text-white/50">Réponse IA</div>
+            <div class="text-2xl font-bold">< 30s</div>
+          </div>
+
+          <div class="bg-white/5 rounded-2xl p-4">
+            <div class="text-sm text-white/50">Précision</div>
+            <div class="text-2xl font-bold">98%</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="px-6 mb-32">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-5xl font-bold text-center mb-16">
+      Expertise de précision
+    </h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <div class="rounded-3xl overflow-hidden bg-black text-white p-8 min-h-[320px]">
+        <span class="material-symbols-outlined text-5xl mb-6">architecture</span>
+        <h3 class="text-2xl font-bold mb-4">Pose de gypse</h3>
+        <p class="text-white/70">
+          Installation propre et finition ultra précise.
+        </p>
+      </div>
+
+      <div class="rounded-3xl overflow-hidden bg-secondary text-white p-8 min-h-[320px]">
+        <span class="material-symbols-outlined text-5xl mb-6">texture</span>
+        <h3 class="text-2xl font-bold mb-4">Tirage de joints</h3>
+        <p class="text-white/80">
+          Surfaces invisibles et finition premium.
+        </p>
+      </div>
+
+      <div class="rounded-3xl overflow-hidden bg-black text-white p-8 min-h-[320px]">
+        <span class="material-symbols-outlined text-5xl mb-6">format_paint</span>
+        <h3 class="text-2xl font-bold mb-4">Peinture</h3>
+        <p class="text-white/70">
+          Résidentiel et commercial haut de gamme.
+        </p>
+      </div>
+
+      <div class="rounded-3xl overflow-hidden bg-secondary text-white p-8 min-h-[320px]">
+        <span class="material-symbols-outlined text-5xl mb-6">water_damage</span>
+        <h3 class="text-2xl font-bold mb-4">Restauration</h3>
+        <p class="text-white/80">
+          Réparation après dégâts d'eau et reconstruction.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="px-6 mb-32">
+  <div class="max-w-5xl mx-auto bg-black text-white rounded-[40px] p-10 md:p-16">
+    <div class="grid lg:grid-cols-2 gap-12">
+
+      <div>
+        <h2 class="text-5xl font-bold mb-6">
+          Prêt à transformer votre espace ?
+        </h2>
+
+        <p class="text-white/70 text-lg mb-8">
+          Contactez LuxeFinish pour une soumission rapide.
+        </p>
+
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined">call</span>
+            <span>514-000-0000</span>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined">mail</span>
+            <span>info@luxefinish.ca</span>
+          </div>
+        </div>
+      </div>
+
+      <form class="space-y-4">
+        <input type="text" placeholder="Nom complet"
+          class="w-full h-14 rounded-xl px-5 text-black"/>
+
+        <input type="email" placeholder="Email"
+          class="w-full h-14 rounded-xl px-5 text-black"/>
+
+        <textarea placeholder="Décrivez votre projet"
+          class="w-full h-40 rounded-xl p-5 text-black"></textarea>
+
+        <button class="w-full h-14 rounded-xl bg-secondary font-bold">
+          Envoyer ma demande
+        </button>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<footer class="py-12 text-center border-t border-black/10">
+  <div class="flex items-center justify-center gap-2 mb-4">
+    <span class="material-symbols-outlined">architecture</span>
+    <span class="font-bold text-xl">LuxeFinish</span>
+  </div>
+
+  <p class="text-black/50">
+    © 2026 LuxeFinish. Tous droits réservés.
+  </p>
+</footer>
+
+<script src="./assets/js/main.js"></script>
+
+</body>
+</html>
+
+
+{
+  "name": "luxefinish",
+  "version": "1.0.0",
+  "private": true
+}
+
+
+# LuxeFinish
+
+Landing page premium pour entreprise de peinture et gypse.
+
+
+{
+  "cleanUrls": true,
+  "trailingSlash": false
+}
