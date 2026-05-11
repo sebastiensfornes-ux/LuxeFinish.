@@ -1,251 +1,387 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LuxeFinish | Peinture & Gypse Montréal</title>
 
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-
-  <link rel="stylesheet" href="./assets/css/style.css">
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1" rel="stylesheet"/>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: "#000000",
-            secondary: "#0058bc",
-            background: "#f9f9f9"
-          }
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-      }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(32px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .ai-overlay {
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        .glow-blue {
+            box-shadow: 0 0 20px rgba(0, 88, 188, 0.3);
+        }
+        .glide-in-top {
+            animation: glideDown 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @keyframes glideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f3f3f4",
+                        "inverse-on-surface": "#f0f1f1",
+                        "background": "#f9f9f9",
+                        "primary": "#000000",
+                        "on-surface-variant": "#444748",
+                        "tertiary": "#000000",
+                        "on-tertiary-fixed-variant": "#3c4d00",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#004493",
+                        "on-primary-container": "#858383",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dadada",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#e5e2e1",
+                        "secondary-fixed": "#d8e2ff",
+                        "on-background": "#1a1c1c",
+                        "tertiary-container": "#161e00",
+                        "surface-container-high": "#e8e8e8",
+                        "on-primary-fixed": "#1c1b1b",
+                        "surface-variant": "#e2e2e2",
+                        "inverse-primary": "#c8c6c5",
+                        "primary-container": "#1c1b1b",
+                        "outline-variant": "#c4c7c7",
+                        "surface": "#f9f9f9",
+                        "surface-container": "#eeeeee",
+                        "on-tertiary-fixed": "#161e00",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "on-surface": "#1a1c1c",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-secondary-container": "#fefcff",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e2e2e2",
+                        "tertiary-fixed": "#c3f400",
+                        "secondary-container": "#0070eb",
+                        "tertiary-fixed-dim": "#abd600",
+                        "inverse-surface": "#2f3131",
+                        "outline": "#747878",
+                        "on-secondary-fixed": "#001a41",
+                        "on-tertiary-container": "#718e00",
+                        "on-primary-fixed-variant": "#474746",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "surface-tint": "#5f5e5e",
+                        "secondary": "#0058bc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "margin-mobile": "20px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-caps": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["80px", {"lineHeight": "88px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
     }
-  </script>
-</head>
-
-<body class="bg-background text-black overflow-x-hidden">
-
-<header class="fixed top-0 left-0 w-full z-50 glass-panel border-b border-black/5">
-  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-    <div class="flex items-center gap-2">
-      <span class="material-symbols-outlined text-3xl">architecture</span>
-      <span class="text-2xl font-bold">LuxeFinish</span>
-    </div>
-
-    <a href="#contact" class="bg-black text-white px-6 py-3 rounded-full font-bold">
-      Soumission
-    </a>
-  </div>
+  </style>
+  </head>
+<body class="bg-background font-body-md text-on-surface overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 glass-panel border-b border-outline-variant/10 shadow-sm glide-in-top">
+<div class="flex items-center justify-between px-margin-mobile md:px-margin-desktop h-20 w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">architecture</span>
+<span class="font-headline-lg text-2xl font-bold tracking-tight text-on-surface">LuxeFinish</span>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-bold text-sm">Get Started</button>
+</div>
 </header>
-
-<main class="pt-24">
-
-<section class="relative px-6 py-24 text-center overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-b from-blue-100/40 to-transparent -z-10"></div>
-
-  <div class="max-w-4xl mx-auto">
-    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-700 mb-8">
-      <span class="material-symbols-outlined">auto_awesome</span>
-      <span class="uppercase text-xs tracking-widest font-bold">
-        Estimation IA disponible
-      </span>
-    </div>
-
-    <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
-      Experts en peinture intérieure, gypse et finition haut de gamme
-    </h1>
-
-    <p class="text-xl text-black/70 max-w-2xl mx-auto mb-10">
-      Service professionnel à Montréal, Laval et Rive-Sud.
-      Soumission rapide et finition premium.
-    </p>
-
-    <div class="flex flex-col md:flex-row gap-4 justify-center">
-      <a href="#contact"
-         class="bg-black text-white px-8 py-5 rounded-2xl font-bold text-lg hover:scale-105 transition">
-        Obtenir une soumission
-      </a>
-
-      <a href="#ia"
-         class="bg-secondary text-white px-8 py-5 rounded-2xl font-bold text-lg glow-blue hover:scale-105 transition">
-        Estimation IA
-      </a>
-    </div>
-  </div>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative px-margin-mobile pt-16 pb-section-gap text-center overflow-hidden">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed border border-secondary-container/20 mb-8">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-caps uppercase text-[10px] tracking-widest">Nouveau : Estimation IA disponible</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-6 leading-tight max-w-[320px] mx-auto">
+                Experts en peinture intérieure, gypse et finition haut de gamme à Montréal
+            </h1>
+<div class="flex flex-col gap-4 mt-10">
+<button class="w-full bg-primary text-on-primary h-16 rounded-xl font-bold text-lg flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+                    Obtenir une soumission
+                </button>
+<button class="w-full bg-secondary-container text-on-secondary h-16 rounded-xl font-bold text-lg flex items-center justify-center gap-2 glow-blue active:scale-[0.98] transition-transform relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+                    Estimation IA
+                </button>
+</div>
+<!-- Background Decorative Element -->
+<div class="absolute -z-10 top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-secondary-fixed/30 rounded-full blur-[120px]"></div>
 </section>
-
-<section id="ia" class="px-6 mb-32">
-  <div class="max-w-6xl mx-auto ai-overlay rounded-[32px] p-10 text-white">
-    <div class="grid lg:grid-cols-2 gap-10 items-center">
-
-      <div>
-        <p class="uppercase tracking-widest text-sm text-blue-300 mb-4">
-          Technologie LuxeAI
-        </p>
-
-        <h2 class="text-4xl font-bold mb-6">
-          Analyse intelligente de vos réparations
-        </h2>
-
-        <p class="text-white/70 text-lg mb-8">
-          Envoyez vos photos et obtenez une estimation automatique
-          en quelques secondes.
-        </p>
-
-        <button class="bg-secondary px-8 py-4 rounded-2xl font-bold">
-          Scanner mes murs
-        </button>
-      </div>
-
-      <div class="bg-white/5 border border-white/10 rounded-3xl p-8">
-        <div class="aspect-video rounded-2xl border-2 border-dashed border-white/20 flex items-center justify-center">
-          <div class="text-center">
-            <span class="material-symbols-outlined text-6xl mb-4">add_a_photo</span>
-            <p class="text-xl font-bold">Déposez vos photos</p>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-2 gap-4 mt-6">
-          <div class="bg-white/5 rounded-2xl p-4">
-            <div class="text-sm text-white/50">Réponse IA</div>
-            <div class="text-2xl font-bold">< 30s</div>
-          </div>
-
-          <div class="bg-white/5 rounded-2xl p-4">
-            <div class="text-sm text-white/50">Précision</div>
-            <div class="text-2xl font-bold">98%</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
+<!-- AI Calculator / Scan Interface -->
+<section class="px-margin-mobile mb-section-gap">
+<div class="ai-overlay rounded-[32px] p-8 border border-white/10 shadow-2xl overflow-hidden relative">
+<div class="flex items-center justify-between mb-8">
+<div class="flex flex-col">
+<span class="font-label-caps text-secondary-fixed-dim uppercase text-[10px]">Système de Scan LuxeAI</span>
+<span class="text-white font-headline-md text-xl">Calculateur de Finition</span>
+</div>
+<div class="flex items-center gap-2 bg-tertiary-container text-tertiary-fixed px-3 py-1 rounded-full border border-tertiary-fixed/20">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed animate-pulse"></span>
+<span class="font-label-caps text-[10px]">98.4% PRÉCISION</span>
+</div>
+</div>
+<div class="aspect-square w-full rounded-2xl border-2 border-dashed border-white/20 bg-white/5 flex flex-col items-center justify-center text-center p-6 relative group transition-colors hover:bg-white/10">
+<span class="material-symbols-outlined text-white/40 text-5xl mb-4 group-hover:scale-110 transition-transform">add_a_photo</span>
+<p class="text-white font-medium text-lg">Déposez vos photos</p>
+<p class="text-white/40 text-sm mt-2">Analysez vos murs en temps réel via notre IA propriétaire</p>
+<!-- Scanline effect -->
+<div class="absolute top-0 left-0 w-full h-[2px] bg-secondary-container blur-sm opacity-50 animate-[scan_3s_infinite_linear]"></div>
+</div>
+<style>
+                    @keyframes scan {
+                        0% { top: 0; }
+                        100% { top: 100%; }
+                    }
+                </style>
+<div class="mt-8 grid grid-cols-2 gap-4">
+<div class="p-4 rounded-xl bg-white/5 border border-white/5">
+<span class="font-label-caps text-white/40 text-[10px] block mb-1">DÉLAI ESTIMÉ</span>
+<span class="text-white font-bold text-lg">24-48h</span>
+</div>
+<div class="p-4 rounded-xl bg-white/5 border border-white/5">
+<span class="font-label-caps text-white/40 text-[10px] block mb-1">RÉPONSE IA</span>
+<span class="text-white font-bold text-lg">&lt; 30s</span>
+</div>
+</div>
+<div class="mt-6 font-label-caps text-[12px] text-tertiary-fixed-dim opacity-80 flex items-center gap-2 justify-center">
+<span class="material-symbols-outlined text-[14px]">terminal</span>
+<span>_analyser_structure_interieure_v3.0.1</span>
+</div>
+</div>
 </section>
-
-<section class="px-6 mb-32">
-  <div class="max-w-7xl mx-auto">
-    <h2 class="text-5xl font-bold text-center mb-16">
-      Expertise de précision
-    </h2>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-      <div class="rounded-3xl overflow-hidden bg-black text-white p-8 min-h-[320px]">
-        <span class="material-symbols-outlined text-5xl mb-6">architecture</span>
-        <h3 class="text-2xl font-bold mb-4">Pose de gypse</h3>
-        <p class="text-white/70">
-          Installation propre et finition ultra précise.
-        </p>
-      </div>
-
-      <div class="rounded-3xl overflow-hidden bg-secondary text-white p-8 min-h-[320px]">
-        <span class="material-symbols-outlined text-5xl mb-6">texture</span>
-        <h3 class="text-2xl font-bold mb-4">Tirage de joints</h3>
-        <p class="text-white/80">
-          Surfaces invisibles et finition premium.
-        </p>
-      </div>
-
-      <div class="rounded-3xl overflow-hidden bg-black text-white p-8 min-h-[320px]">
-        <span class="material-symbols-outlined text-5xl mb-6">format_paint</span>
-        <h3 class="text-2xl font-bold mb-4">Peinture</h3>
-        <p class="text-white/70">
-          Résidentiel et commercial haut de gamme.
-        </p>
-      </div>
-
-      <div class="rounded-3xl overflow-hidden bg-secondary text-white p-8 min-h-[320px]">
-        <span class="material-symbols-outlined text-5xl mb-6">water_damage</span>
-        <h3 class="text-2xl font-bold mb-4">Restauration</h3>
-        <p class="text-white/80">
-          Réparation après dégâts d'eau et reconstruction.
-        </p>
-      </div>
-
-    </div>
-  </div>
+<!-- Services Section -->
+<section class="px-margin-mobile mb-section-gap">
+<h2 class="font-headline-lg-mobile text-center mb-12">Expertise de Précision</h2>
+<div class="grid grid-cols-1 gap-6">
+<!-- Card 1 -->
+<div class="group relative aspect-[4/5] rounded-[24px] overflow-hidden bg-surface-container-high border border-outline-variant/10 shadow-sm">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Close-up of a professional installer securing gypsum boards in a luxury residential unit. The lighting is bright and architectural, highlighting the crisp edges and perfect alignment. Minimalist white aesthetic with clean lines and focus on technical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDO8K2zoQLfeo24qQz1ti_0zfIlC6LPUGWs4aW8XjWl5dBb1gR50fmzo4YPJZO9yJU1aGp6YaT_WW53JQYpBRHtZwYvN8kUI3mqrfZjeqVMSzb-QR2SAsWN9b10cSuUtb3Fxom26U7RiXEPtnscm1Mg7tPL76HsxKyVH_mRHztlnBFCTHwObBwHAgmmgiicFjCbOzWN3Kl6g-2CTJOtYL-1h1KZCZblmwp6Y66Xhe9QMNzJQGY2kXMA4zlISDK1ILWtpv6MIGeiN8AX"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<h3 class="text-white font-headline-md text-xl mb-2">Pose de Gypse</h3>
+<p class="text-white/70 text-sm">Installation structurelle de haute précision pour architectures complexes.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative aspect-[4/5] rounded-[24px] overflow-hidden bg-surface-container-high border border-outline-variant/10 shadow-sm">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Extreme close-up of a professional taping and jointing tool applying compound to a drywall seam. The finish is incredibly smooth, reflecting a soft gallery-like lighting. The palette consists of muted greys and bright whites, emphasizing a flawless surface finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnIfPAZkUQhoVVjHloCV9KBpyowRlRpcbyvBPaDPexh_9fIOAyro0m4dR4ZWgGzXV4ufk3CEzAXBd39oQ1mhjGLIH5BSm8vAcFS5y3SZc6vDJdLi3xbPyh5NNF4whJtJJeywXkcGGvrDtJPGtvf6ttKkl5-gtJgRoSYVDHFZG_DE7YuQjD-c4ernvorEHDTZiqRLhWGK-Jwc9vPEIcV3G3GPf3iX6RGTa9mrl_01EWbE65pwsFUhoWyw7tvxEZRp08NStvYAuaSguY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<h3 class="text-white font-headline-md text-xl mb-2">Tirage de Joints</h3>
+<p class="text-white/70 text-sm">Ponçage robotique et manuel pour une surface invisible sous tout éclairage.</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group relative aspect-[4/5] rounded-[24px] overflow-hidden bg-surface-container-high border border-outline-variant/10 shadow-sm">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A modern designer interior with a large, perfectly painted deep charcoal accent wall. The paint has a premium matte finish that absorbs light beautifully. The room is minimalist with high-end architectural furniture and vast natural light from floor-to-ceiling windows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5sTr-nqWa4wtQC59g1ac6qrPIpKsuAEL-gF7LHznpQXDR4U8p3sLbKeJd1VLmnAnhPp5Y-YhAiJKCwPyYbD3Ym5G0KKnOddZHJCnfL6vjuuPEr8gdY3ULn2hva6T74ElCWYKGhYu9OKVC1MWft-L4jFGew5GYQmNpm69Sloyyu0nVVOT2r20W3Xy8IurCOnpSUbn4rpBFRwHe3UT71TU5932sgzESTzKvowXB3rmOVEfeHjalRdqJ6-xZ23dpDf84I-RGcPyOIYjK"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<h3 class="text-white font-headline-md text-xl mb-2">Peinture Élite</h3>
+<p class="text-white/70 text-sm">Finition au pistolet ou rouleau premium utilisant des pigments haute densité.</p>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group relative aspect-[4/5] rounded-[24px] overflow-hidden bg-surface-container-high border border-outline-variant/10 shadow-sm">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A restored high-end heritage building interior with perfectly smooth walls and modern finishings. The scene combines historic architectural elements with ultra-modern textures, bathed in warm, sophisticated lighting that highlights the restoration quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHNsusRX9Hr2bjZwRMG80Mz9rEg_DaJqsYS7nVYMmN8aepUPt8uWsFEGHyAMZ472wt35XnF8CZeVi3E6hQ2ajHl_88Hir6R4HtKhsGkVC1NGUbtbKzN84MojGei1QcwHVM4z3KwCT2yIv1nBqXPTK_dqmdaJ4OGY19Cn2r-YmlntXE-BW4j_EbdbkYxiT13J_GIZvrEySD-EVuQOC1RS--pVEnVtbIBYcOQ2ZFcmaOjIb8D1VDpHSo93j5BuyhY66ILOeYD6PqLE8W"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<h3 class="text-white font-headline-md text-xl mb-2">Restauration</h3>
+<p class="text-white/70 text-sm">Redonner vie aux surfaces complexes avec des techniques de conservation modernes.</p>
+</div>
+</div>
+</div>
 </section>
-
-<section id="contact" class="px-6 mb-32">
-  <div class="max-w-5xl mx-auto bg-black text-white rounded-[40px] p-10 md:p-16">
-    <div class="grid lg:grid-cols-2 gap-12">
-
-      <div>
-        <h2 class="text-5xl font-bold mb-6">
-          Prêt à transformer votre espace ?
-        </h2>
-
-        <p class="text-white/70 text-lg mb-8">
-          Contactez LuxeFinish pour une soumission rapide.
-        </p>
-
-        <div class="space-y-4">
-          <div class="flex items-center gap-3">
-            <span class="material-symbols-outlined">call</span>
-            <span>514-000-0000</span>
-          </div>
-
-          <div class="flex items-center gap-3">
-            <span class="material-symbols-outlined">mail</span>
-            <span>info@luxefinish.ca</span>
-          </div>
-        </div>
-      </div>
-
-      <form class="space-y-4">
-        <input type="text" placeholder="Nom complet"
-          class="w-full h-14 rounded-xl px-5 text-black"/>
-
-        <input type="email" placeholder="Email"
-          class="w-full h-14 rounded-xl px-5 text-black"/>
-
-        <textarea placeholder="Décrivez votre projet"
-          class="w-full h-40 rounded-xl p-5 text-black"></textarea>
-
-        <button class="w-full h-14 rounded-xl bg-secondary font-bold">
-          Envoyer ma demande
-        </button>
-      </form>
-
-    </div>
-  </div>
+<!-- Before/After Section -->
+<section class="mb-section-gap bg-primary py-24 px-margin-mobile">
+<h2 class="text-white font-headline-lg-mobile text-center mb-4">Avant. Après. Invisible.</h2>
+<p class="text-white/60 text-center mb-12 max-w-xs mx-auto">Observez la transformation radicale de nos projets de gypse et peinture.</p>
+<div class="relative aspect-video rounded-2xl overflow-hidden border border-white/10 group">
+<img class="w-full h-full object-cover" data-alt="A split-screen comparison showing a raw, unfinished construction site on the left and a stunningly finished luxury living room on the right. The transformation showcases perfect drywall and premium white paint. High-contrast, professional architectural photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDacMRMphtbt1FNcr1AHA60kkcvLeGFYs4Xvz9esEkoPl6CbZsGTjGGLQVre73u5yHcf-iWzO1I-ErMrSkWAA4028uDs2uaGHWiEorsSp3Bb6X0ywIR9K842M9gvNRqpiWWMc6lzZb1QJ6Gd0qzqLGoH3OMEetAatJPKM4MFIBIQjdJPfUozY8uTErzg49dBhGJ4hC7QkuRcKk_OnMNNGc44xTR9pf9_DxPp4mngMJqHU_JjTP9mCPcuCdbtMEc_jOOKjz5OZCaaA7P"/>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg cursor-ew-resize">
+<span class="material-symbols-outlined text-primary">unfold_more_double</span>
+</div>
+<div class="absolute bottom-4 left-4 bg-black/50 backdrop-blur-md text-white text-[10px] px-3 py-1 rounded-full border border-white/20 uppercase tracking-widest font-label-caps">Brut</div>
+<div class="absolute bottom-4 right-4 bg-secondary-container/80 backdrop-blur-md text-white text-[10px] px-3 py-1 rounded-full border border-white/20 uppercase tracking-widest font-label-caps">LuxeFinish</div>
+</div>
 </section>
-
-<footer class="py-12 text-center border-t border-black/10">
-  <div class="flex items-center justify-center gap-2 mb-4">
-    <span class="material-symbols-outlined">architecture</span>
-    <span class="font-bold text-xl">LuxeFinish</span>
-  </div>
-
-  <p class="text-black/50">
-    © 2026 LuxeFinish. Tous droits réservés.
-  </p>
+<!-- Process Section -->
+<section class="px-margin-mobile mb-section-gap">
+<h2 class="font-headline-lg-mobile text-center mb-16">Le Processus</h2>
+<div class="space-y-16">
+<div class="flex gap-6 relative">
+<div class="absolute top-10 left-[19px] bottom-[-40px] w-px bg-outline-variant/30"></div>
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm relative z-10">1</div>
+<div>
+<h4 class="font-headline-md text-lg mb-2">Capturer</h4>
+<p class="text-secondary text-sm">Utilisez notre interface IA pour scanner vos pièces ou uploader vos plans architecturaux.</p>
+</div>
+</div>
+<div class="flex gap-6 relative">
+<div class="absolute top-10 left-[19px] bottom-[-40px] w-px bg-outline-variant/30"></div>
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm relative z-10">2</div>
+<div>
+<h4 class="font-headline-md text-lg mb-2">Analyser</h4>
+<p class="text-secondary text-sm">Notre moteur IA identifie les matériaux, les surfaces et estime les quantités de gypse et peinture requises.</p>
+</div>
+</div>
+<div class="flex gap-6 relative">
+<div class="absolute top-10 left-[19px] bottom-[-40px] w-px bg-outline-variant/30"></div>
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm relative z-10">3</div>
+<div>
+<h4 class="font-headline-md text-lg mb-2">Valider</h4>
+<p class="text-secondary text-sm">Rencontre finale sur site pour confirmer les détails techniques et les choix de finitions premium.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-secondary-container text-white flex items-center justify-center font-bold text-sm relative z-10">4</div>
+<div>
+<h4 class="font-headline-md text-lg mb-2">Transformer</h4>
+<p class="text-secondary text-sm">Exécution par nos maîtres-artisans avec un respect strict du calendrier et de la propreté.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="px-margin-mobile mb-section-gap">
+<div class="bg-surface-container-low rounded-[32px] p-8">
+<div class="flex items-center gap-2 mb-6 justify-center">
+<div class="flex">
+<span class="material-symbols-outlined text-[#FFB800]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#FFB800]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#FFB800]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#FFB800]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#FFB800]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-bold text-lg">5.0/5</span>
+</div>
+<div class="overflow-hidden">
+<div class="flex transition-transform duration-500">
+<div class="w-full flex-shrink-0 text-center">
+<p class="text-lg italic text-on-surface mb-6">"Le niveau de finition est tout simplement inégalé à Montréal. LuxeFinish a transformé mon condo avec une précision chirurgicale."</p>
+<p class="font-bold">— Marc-Antoine L., Développeur Immobilier</p>
+</div>
+</div>
+</div>
+<div class="flex justify-center gap-2 mt-8">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+</div>
+</div>
+</section>
+<!-- Local SEO Towns -->
+<section class="px-margin-mobile mb-section-gap">
+<h2 class="font-headline-md text-center mb-8">Nous desservons votre région</h2>
+<div class="flex flex-wrap justify-center gap-3">
+<span class="px-4 py-2 rounded-full bg-surface-container border border-outline-variant/20 text-sm font-medium">Montréal</span>
+<span class="px-4 py-2 rounded-full bg-surface-container border border-outline-variant/20 text-sm font-medium">Laval</span>
+<span class="px-4 py-2 rounded-full bg-surface-container border border-outline-variant/20 text-sm font-medium">Rive-Sud</span>
+<span class="px-4 py-2 rounded-full bg-surface-container border border-outline-variant/20 text-sm font-medium">West Island</span>
+<span class="px-4 py-2 rounded-full bg-surface-container border border-outline-variant/20 text-sm font-medium">Plateau</span>
+<span class="px-4 py-2 rounded-full bg-surface-container border border-outline-variant/20 text-sm font-medium">Ville-Marie</span>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="px-margin-mobile mb-section-gap">
+<div class="bg-primary text-on-primary rounded-[32px] p-10 text-center">
+<h2 class="font-headline-lg-mobile mb-6">Prêt à transformer votre intérieur ?</h2>
+<p class="text-white/60 mb-10">Laissez-nous élever le standard de votre projet résidentiel ou commercial.</p>
+<form class="space-y-4">
+<input class="w-full bg-white/10 border-none rounded-xl h-14 px-6 text-white placeholder:text-white/40 focus:ring-2 focus:ring-secondary-container transition-all" placeholder="Nom complet" type="text"/>
+<input class="w-full bg-white/10 border-none rounded-xl h-14 px-6 text-white placeholder:text-white/40 focus:ring-2 focus:ring-secondary-container transition-all" placeholder="Email" type="email"/>
+<textarea class="w-full bg-white/10 border-none rounded-xl h-32 px-6 py-4 text-white placeholder:text-white/40 focus:ring-2 focus:ring-secondary-container transition-all" placeholder="Décrivez votre projet"></textarea>
+<button class="w-full bg-white text-primary h-16 rounded-xl font-bold text-lg mt-4">Envoyer la demande</button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/10 py-16 px-margin-mobile">
+<div class="flex flex-col items-center text-center">
+<div class="flex items-center gap-2 mb-8">
+<span class="material-symbols-outlined text-primary text-2xl">architecture</span>
+<span class="font-headline-xl text-xl font-bold text-on-surface">LuxeFinish</span>
+</div>
+<div class="grid grid-cols-2 gap-x-12 gap-y-4 mb-12">
+<a class="text-secondary hover:text-on-surface transition-colors" href="#">Gypsum Installation</a>
+<a class="text-secondary hover:text-on-surface transition-colors" href="#">Premium Painting</a>
+<a class="text-secondary hover:text-on-surface transition-colors" href="#">Montreal</a>
+<a class="text-secondary hover:text-on-surface transition-colors" href="#">Laval</a>
+<a class="text-secondary hover:text-on-surface transition-colors" href="#">Privacy Policy</a>
+<a class="text-secondary hover:text-on-surface transition-colors" href="#">Terms</a>
+</div>
+<p class="text-secondary font-body-md text-sm opacity-60">
+                © 2024 LuxeFinish. Precision in Every Layer. All rights reserved.
+            </p>
+</div>
 </footer>
-
-<script src="./assets/js/main.js"></script>
-
-</body>
-</html>
-
-
-{
-  "name": "luxefinish",
-  "version": "1.0.0",
-  "private": true
-}
-
-
-# LuxeFinish
-
-Landing page premium pour entreprise de peinture et gypse.
-
-
-{
-  "cleanUrls": true,
-  "trailingSlash": false
-}
+<!-- Sticky Bottom Navigation / Conversion Bar -->
+<div class="fixed bottom-0 left-0 w-full z-50 glass-panel shadow-[0_-10px_40px_rgba(0,0,0,0.1)] px-4 py-4">
+<div class="max-w-md mx-auto grid grid-cols-2 gap-3">
+<a class="h-14 bg-surface-container-highest text-primary rounded-xl flex items-center justify-center gap-2 font-bold border border-outline-variant/20" href="tel:+15140000000">
+<span class="material-symbols-outlined">call</span>
+                Appeler
+            </a>
+<button class="h-14 bg-secondary-container text-on-secondary rounded-xl flex items-center justify-center gap-2 font-bold glow-blue">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+                Estimation IA
+            </button>
+</div>
+</div>
+<!-- Padding for sticky bottom bar -->
+<div class="h-24"></div>
+</body></html>
